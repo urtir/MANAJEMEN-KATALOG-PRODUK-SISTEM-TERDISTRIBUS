@@ -1,0 +1,65 @@
+GENERATE API KEY:
+
+curl -X POST \
+-H "Content-Type: application/json" \
+-d '{"client_name":"cli_user"}' \
+http://192.168.0.110:5000/api/keys
+
+key:
+
+92293451ff6471608a3a1982f8676bac60f7da9f468ed66b11454fb227d86071
+
+
+LIST ALL PRODUCT:
+
+curl -X GET \
+-H "X-API-Key: 92293451ff6471608a3a1982f8676bac60f7da9f468ed66b11454fb227d86071" \
+http://192.168.0.110:5000/api/products
+
+
+GET SINGLE PRODUCT:
+
+curl -X GET \
+-H "X-API-Key: 92293451ff6471608a3a1982f8676bac60f7da9f468ed66b11454fb227d86071" \
+http://192.168.0.110:5000/api/products/1
+
+
+CREATE PRODUCT:
+
+
+curl -X POST \
+-H "Content-Type: application/json" \
+-H "X-API-Key: 92293451ff6471608a3a1982f8676bac60f7da9f468ed66b11454fb227d86071" \
+-d '{
+    "name": "Produk Baru",
+    "category": "Electronics",
+    "price": 99.99,
+    "description": "Deskripsi baru"
+}' \
+http://192.168.0.110:5000/api/products
+
+
+
+UPDATE PRODUCT:
+
+
+curl -X PUT \
+-H "Content-Type: application/json" \
+-H "X-API-Key: 92293451ff6471608a3a1982f8676bac60f7da9f468ed66b11454fb227d86071" \
+-d '{
+    "name": "Updated Product",
+    "category": "Electronics",
+    "price": 199.99,
+    "description": "Updated Description"
+}' \
+http://192.168.0.110:5000/api/products/1
+
+
+
+DELETE PRODUCT:
+
+
+
+curl -X DELETE \
+-H "X-API-Key: 92293451ff6471608a3a1982f8676bac60f7da9f468ed66b11454fb227d86071" \
+http://192.168.0.110:5000/api/products/1
